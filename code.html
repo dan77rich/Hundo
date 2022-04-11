@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>APP NAME: Coding Challenge By Dan Richardson</title>
+    <title>Hundo: Coding Challenge By Dan Richardson</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -42,7 +42,7 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">App Name</a>
+                        <a class="nav-link active" aria-current="page" href="#">Hundo</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="index.html">Home</a>
@@ -72,28 +72,52 @@
                     <pre class="line-numbers">
                         <code class="language-javascript">
                             // Step One - controller accept request
-function getMessage() {
+                            function getValues() {
+                                let startValue = document.getElementById("startValue").value;
+                                let endValue = document.getElementById("endValue").value;
+                            
+                                displayValues(startValue, endValue)
+                            }
 
-    let msg = document.getElementById("txtmessage").value;
-    displayMessage(msg);
-}
-
-
-// Final Step - view
-function displayMessage(message) {
-
-    // <li class="list-group-item">A list item</li>
-    element = document.getElementById("results");
-    //next create a new li element 
-    let item = document.createElement("li");
-    //add classes to the li element 
-    item.classList.add("list-group-item")
-    // set the message for the li element
-    item.innerHTML = message;
-    // add the new items to the list
-    element.appendChild(item);
-
-}
+                            // Final Step - view
+                            function displayValues(start, end) {
+                            
+                                // first get the ol element from the page>
+                                element = document.getElementById("results");
+                            
+                               
+                                for (let i = start; i <= end; i++) {
+                            
+                                     //next create a new li element 
+                                     let item = document.createElement("div");
+                            
+                                    if (i % 2 == 0) {
+                                        item.classList.add("boldItem");
+                                    }
+                                    else{
+                                        item.classList.add("redItem")
+                            
+                                    }
+                            
+                                   
+                            
+                                    //add classes to the li element 
+                                    item.classList.add("col");
+                            
+                                    // set the message for the li element
+                                    item.innerHTML = i;
+                            
+                                    // add the new items to the list
+                                    element.appendChild(item);
+                            
+                                }
+                            
+                            
+                            
+                            
+                            
+                            
+                            }
 
                         </code>
                     </pre>
@@ -107,6 +131,7 @@ function displayMessage(message) {
                     <p>Displays the items on the page</p>
                 </div>
             </div>
+
         </div>
     </main>
     <footer class="footer mt-auto p-0 bg-dark sticky-footer">
